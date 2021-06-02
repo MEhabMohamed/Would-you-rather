@@ -1,0 +1,25 @@
+.homeContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px hidden transparent;
+    border-radius: 5px;
+    background: linear-gradient(rgb(48, 48, 48) 50%, rgb(0, 0, 0) 100%);
+    color: whitesmoke;
+    justify-content: center;
+}
+
+.homeItems {
+    list-style: none;
+    width: 60%
+}
+
+.ans {
+    width: 50%;
+    height: 10%;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 10px 10px 10px;
+    border-radius: 10px;
+    background: silver;
+    cursor: pointer;
+}

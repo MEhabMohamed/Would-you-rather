@@ -1,0 +1,52 @@
+.ansContainer {
+    display: grid;
+    grid-template-columns: repeat(5, 15%);
+    grid-template-rows: repeat(5, 18%);
+    grid-template-areas: 
+    'tx tx tx rs rs'
+    'pic pic opO opO opO'
+    'pic pic opO opO opO'
+    'pic pic opT opT opT'
+    'pic pic opT opT opT';
+    align-items: center;
+    justify-content: center;
+    border: 5px solid whitesmoke;
+    border-radius: 5px;
+    background: linear-gradient(rgb(48, 48, 48) 50%, rgb(0, 0, 0) 100%);
+    color: whitesmoke;
+    width: 70%;
+}
+
+.avatar {
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    grid-area: pic;
+}
+
+.head {
+    grid-area: tx;
+}
+
+.optionOne {
+    grid-area: opO;
+}
+
+.optionTwo {
+    grid-area: opT;
+}
+
+.vote {
+    background: rgba(160, 150, 18, 0.171);
+    font-weight: bolder;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.results {
+    grid-area: rs;
+}
+
+.askedBy {
+    grid-area: tx;
+}

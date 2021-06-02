@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px hidden transparent;
+    border-radius: 5px;
+    background: linear-gradient(rgb(131, 131, 101) 50%, black 100%);
+    color: whitesmoke;
+}
+
+.main {
+    border-radius: 50%;
+    max-width: 35%;
+    max-height: 35%;
+}
+
+.signLabel {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.userSelect {
+    width: 50%;
+    height: 10%;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 10px 10px 10px;
+    border-radius: 10px;
+}
+
+.signin {
+    text-decoration: none;
+    color: whitesmoke;
+    background-color: rgb(131, 131, 101);
+    width: 20%;
+    height: 10%;
+    padding: 10px 10px 10px 10px;
+    margin: 0 10px 10px 10px;
+    text-align: center;
+    border: 5px hidden transparent;
+    border-radius: 30%;
+}

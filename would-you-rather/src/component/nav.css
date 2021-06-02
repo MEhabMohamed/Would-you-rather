@@ -1,0 +1,38 @@
+.nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-decoration: none;
+
+}
+
+.nav li:first-child {
+    padding-left: 0;
+}
+
+.active {
+    font-weight: bold;
+    background: rgba(101, 133, 11, 0.589);
+    border-radius: 50%;
+    padding: 10px 10px 10px 10px;
+}
+
+li {
+    list-style-type: none;
+    padding: 10px;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    color: #252525;
+}
+
+.title {
+    background: rgba(3, 48, 85, 0.171);
+    font-weight: bolder;
+    border-top-right-radius: 60%;
+    border-bottom-left-radius: 60%;
+    border-bottom-right-radius: 30%;
+    border-top-left-radius: 30%;
+}

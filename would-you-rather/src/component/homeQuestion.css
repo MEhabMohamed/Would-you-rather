@@ -1,0 +1,45 @@
+.homeQuesContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows: repeat(3, 30%);
+    grid-template-areas: 
+    'ha ha ha ha'
+    'ava ava prv prv'
+    'ava ava vfl vfl';
+    border: 5px solid whitesmoke;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 10px 10px 10px;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.preview {
+    grid-area: prv;
+}
+
+.homeAvatar {
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    grid-area: ava;
+}
+
+.viewFull {
+    grid-area: vfl;
+    width: 80%;
+    height: 50%;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 10px 10px 10px;
+    border-radius: 10px;
+    border: 5px hidden transparent;
+    cursor: pointer;
+    background: whitesmoke;
+}
+
+.homeAsking {
+    grid-area: ha;
+    align-items: center;
+}
