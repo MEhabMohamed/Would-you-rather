@@ -25,8 +25,8 @@ class Signin extends Component {
                 <h3>Welcome to Would you Rather, Have fun!</h3>
                 <img className='main' src={Wyr} alt='Would you rather'/>
                 <label className='signLabel' >Please select user then press Sign In</label>
-                <select className='userSelect' onChange={this.handleChange}>
-                    <option label='Select User' selected disabled/>
+                <select className='userSelect' defaultValue='sel' onChange={this.handleChange}>
+                    <option label='Select User' value='sel' disabled/>
                         {this.props.users.map(user => {
                             return <option key={user.id} value={user.id}>
                                         {user.name}

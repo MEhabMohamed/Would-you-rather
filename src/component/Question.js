@@ -35,14 +35,15 @@ class Question extends Component {
 
        const checkOne = optionOne.votes.includes(authedUser)
        const checkTwo = optionTwo.votes.includes(authedUser)
-       console.log(checkOne, checkTwo)
 
        return (
            (!checkOne && !checkTwo) ?
            <div className='quesContainer'>
                 <img className='quesAvatar' src={avatarURL} alt={author}/>
                 <h3 className='askedBy'>{name} is Asking: Would you rather</h3>
-                <form className='quesForm' onSubmit={this.handleSubmit}>
+                <form className='quesForm' onSubmit={this.state.value !== '' ? this.handleSubmit : (e) => {
+                    e.preventDefault()
+                    return alert('Please select a valid choice')}}>
                     <input className='optionOne' type='radio' name='question' value='optionOne' onChange={this.handleChange}/>
                         <label htmlFor='optionOne'>{optionOne.text}</label>
                     <input className='optionTwo' type='radio' name='question' value='optionTwo' onChange={this.handleChange}/>
