@@ -1,11 +1,12 @@
-import React , { Component } from 'react'
-import { connect } from 'react-redux'
+import React from 'react'
+import { connect , useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import './answeredQ.css'
 
-class HomeAnsweredQuestion extends Component {
-   render() {
-       const { question , user , id } = this.props
+const HomeAnsweredQuestion = ({id}) => {
+       const { questions , users } = useSelector((state) => state)
+       const question = questions[id]
+       const user = users[question.author]
 
        const { optionOne , author } = question
        const { name , avatarURL } = user
@@ -23,18 +24,6 @@ class HomeAnsweredQuestion extends Component {
                 </div>
            </div>
        )
-   } 
 }
 
-function mapStateToProps ({ questions , users , authedUser } , { id }) {
-    const question = questions[id]
-    const user = users[question.author]
-
-    return {
-        question,
-        user,
-        authedUser
-    }
-}
-
-export default connect(mapStateToProps)(HomeAnsweredQuestion)
+export default connect()(HomeAnsweredQuestion)

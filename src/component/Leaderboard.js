@@ -1,14 +1,17 @@
-import React , { Component } from 'react'
-import { connect } from 'react-redux'
+import React  from 'react'
+import { connect , useSelector } from 'react-redux'
 import './leaderboard.css'
 
-class Leaderboard extends Component {
-    render() {
+const Leaderboard = () => {
+        const users = useSelector((state) => state.users)
+        const user = Object.keys(users)
+        .sort((a,b) => (users[b].questions.length + Object.keys(users[b].answers).length)
+        -(users[a].questions.length + Object.keys(users[a].answers).length))
         return (
             <div className='lbContainer'>
                  <ul>
-                     {this.props.user.map((u) => {
-                         const sortedUser = this.props.users[u]
+                     {user.map((u) => {
+                         const sortedUser = users[u]
                          const len = Object.keys(sortedUser.answers).length
                          const score = len + sortedUser.questions.length
                          return (
@@ -25,17 +28,6 @@ class Leaderboard extends Component {
                  </ul>
             </div>
         )
-    } 
 }
 
-function mapStateToProps ({ users }) {
-    console.log(users)
-    return {
-        user: Object.keys(users)
-            .sort((a,b) => (users[b].questions.length + Object.keys(users[b].answers).length)
-            -(users[a].questions.length + Object.keys(users[a].answers).length)),
-        users
-    }
-}
-
-export default connect(mapStateToProps)(Leaderboard)
+export default connect()(Leaderboard)

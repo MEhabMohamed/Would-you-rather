@@ -204,3 +204,32 @@ export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
     }, 500)
   })
 }
+
+function formatUser ({ id , name , avatar }) {
+  return {
+    id,
+    name,
+    avatarURL: avatar,
+    answers: {},
+    questions: []
+  }
+}
+
+export function saveUser (user) {
+  return new Promise((res, rej) => {
+    const formattedUser = formatUser(user);
+
+    setTimeout(() => {
+      questions = {
+        ...questions,
+      }
+      
+      users = {
+        ...users,
+        [formattedUser.id]: formattedUser
+      }
+
+      res(formattedUser)
+    }, 1000)
+  })
+}

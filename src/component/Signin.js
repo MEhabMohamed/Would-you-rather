@@ -20,11 +20,12 @@ class Signin extends Component {
 
     render () {
         const { user } = this.state
+        const { from } = this.props.location.state || { from: { pathname: '/welcome'} }
         return (
             <div className='container'>
                 <h3>Welcome to Would you Rather, Have fun!</h3>
                 <img className='main' src={Wyr} alt='Would you rather'/>
-                <label className='signLabel' >Please select user then press Sign In</label>
+                <label className='signLabel' >Please select user or Create new one</label>
                 <select className='userSelect' defaultValue='sel' onChange={this.handleChange}>
                     <option label='Select User' value='sel' disabled/>
                         {this.props.users.map(user => {
@@ -34,17 +35,16 @@ class Signin extends Component {
                                 })}
                 </select>
                 {(user !== (null && '')) && 
-                <Link className='signin' to='/welcome' onClick=
+                <Link className='signin' to={from} onClick=
                 {() => this.props.dispatch(setAuthedUser(user))}>Sign In</Link>}
             </div>
         )
     }
 }
 
-function mapStateToProps ({ users , authedUser }) {
+function mapStateToProps ({ users }) {
     return {
         users: Object.values(users),
-        authedUser
     }
 }
 

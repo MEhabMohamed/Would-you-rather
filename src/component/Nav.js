@@ -11,6 +11,9 @@ export default function Nav () {
   return (
     <nav className='nav'>
       <ul>
+        <li className='ywr'>
+            Would You Rather
+        </li>
         <li>
           <NavLink to='/welcome' exact activeClassName='active'>
             Home
@@ -24,6 +27,11 @@ export default function Nav () {
         <li>
           <NavLink to='/leaderboard' activeClassName='active'>
             Leaderboard
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to='/newuser' activeClassName='active'>
+            Create New User
           </NavLink>
         </li>
         {authedUser ?
