@@ -30,7 +30,7 @@ const NotFound = () => {
 
 class App extends Component {
   componentDidMount() {
-    this.props.dispatch(handleInitialData())
+    this.props.initial()
   }
   render () {
     return (
@@ -62,4 +62,10 @@ function mapStateToProps ({ authedUser }) {
   }
 }
 
-export default connect(mapStateToProps)(App);
+function mapDispatchToProps (dispatch) {
+  return {
+    initial: () => dispatch(handleInitialData())
+  }
+}
+
+export default connect(mapStateToProps , mapDispatchToProps)(App);

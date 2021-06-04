@@ -18,14 +18,15 @@ function addUser (user) {
     }
 }
 
-export function handleAddUser ({ id , name , avatar }) {
+export function handleAddUser ({ id , name , avatar , password }) {
     return (dispatch) => {
         dispatch(showLoading())
         return (
             saveUser({
                 id,
                 name,
-                avatar
+                avatar,
+                password
             })
             .then((user) => dispatch(addUser(user)))
             .then(() => dispatch(hideLoading()))

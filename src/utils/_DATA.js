@@ -13,7 +13,8 @@ let users = {
       "am8ehyc8byjqgar0jgpub9": 'optionTwo',
       "loxhs1bqm25b708cmbf3g": 'optionTwo'
     },
-    questions: ['8xf0y6ziyjabvozdd253nd', 'am8ehyc8byjqgar0jgpub9']
+    questions: ['8xf0y6ziyjabvozdd253nd', 'am8ehyc8byjqgar0jgpub9'],
+    password: 'sarah891'
   },
   tylermcginnis: {
     id: 'tylermcginnis',
@@ -24,6 +25,7 @@ let users = {
       "xj352vofupe1dqz9emx13r": 'optionTwo',
     },
     questions: ['loxhs1bqm25b708cmbf3g', 'vthrdm985a262al8qx3do'],
+    password: 'tyler523',
   },
   johndoe: {
     id: 'johndoe',
@@ -35,6 +37,7 @@ let users = {
       "6ni6ok3ym7mf1p33lnez": 'optionTwo'
     },
     questions: ['6ni6ok3ym7mf1p33lnez', 'xj352vofupe1dqz9emx13r'],
+    password: 'john4468'
   }
 }
 
@@ -205,13 +208,14 @@ export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
   })
 }
 
-function formatUser ({ id , name , avatar }) {
+function formatUser ({ id , name , avatar , password }) {
   return {
     id,
     name,
     avatarURL: avatar,
     answers: {},
-    questions: []
+    questions: [],
+    password
   }
 }
 

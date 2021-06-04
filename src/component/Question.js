@@ -30,14 +30,15 @@ class Question extends Component {
    render() {
        const { question , user , id , authedUser } = this.props
 
-       const { optionOne , optionTwo , author } = question
+       const { optionOne , optionTwo , author } = question !== undefined && question
        const { name , avatarURL } = user
 
-       const checkOne = optionOne.votes.includes(authedUser)
-       const checkTwo = optionTwo.votes.includes(authedUser)
+       const checkOne = question !== undefined && optionOne.votes.includes(authedUser)
+       const checkTwo = question !== undefined && optionTwo.votes.includes(authedUser)
 
        return (
-           (!checkOne && !checkTwo) ?
+            Object.keys(this.props.questions).includes(id) ?
+           ((!checkOne && !checkTwo) ?
            <div className='quesContainer'>
                 <img className='quesAvatar' src={avatarURL} alt={author}/>
                 <h3 className='askedBy'>{name} is Asking: Would you rather</h3>
@@ -50,7 +51,7 @@ class Question extends Component {
                         <label htmlFor='optionTwo'>{optionTwo.text}</label>
                     <button className='ansBtn' type='submit'>Submit</button>
                 </form>
-           </div> : <AnsweredQuestion id={id} />
+           </div> : <AnsweredQuestion id={id} />) : 'Error 404: Not Found'
        )
    } 
 }
@@ -58,13 +59,14 @@ class Question extends Component {
 function mapStateToProps ({ questions , users , authedUser } , props) {
     const { id } = props.match.params
     const question = questions[id]
-    const user = users[question.author]
+    const user = question !== undefined && users[question.author]
 
     return {
         question,
         user,
         authedUser,
-        id
+        id,
+        questions
     }
 }
 

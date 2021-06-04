@@ -7,7 +7,16 @@ import './signin.css'
 
 class Signin extends Component {
     state = {
-        user: null
+        user: null,
+        pass: ''
+    }
+
+    handlePass = (e) => {
+        const evt = e.target.value
+
+        this.setState(() => ({
+            pass: evt
+        }))
     }
 
     handleChange = (e) => {
@@ -19,7 +28,7 @@ class Signin extends Component {
     }
 
     render () {
-        const { user } = this.state
+        const { user , pass } = this.state
         const { from } = this.props.location.state || { from: { pathname: '/welcome'} }
         return (
             <div className='container'>
@@ -34,9 +43,21 @@ class Signin extends Component {
                                     </option>
                                 })}
                 </select>
+                <p>Please Enter your password:
+                (default users passwords: Sarah: sarah891, Tyler: tyler523,
+                John: john4468) </p>
+                <textarea 
+                    placeholder='Password'
+                    value={pass}
+                    className='password'
+                    onChange={this.handlePass}
+                />
                 {(user !== (null && '')) && 
                 <Link className='signin' to={from} onClick=
-                {() => this.props.dispatch(setAuthedUser(user))}>Sign In</Link>}
+                {() => {
+                    if (this.props.passCheck[user].password === pass) { 
+                        return this.props.dispatch(setAuthedUser(user))}
+                        return alert('Invalid password, Please Try again!')}}>Sign In</Link>}
             </div>
         )
     }
@@ -45,6 +66,7 @@ class Signin extends Component {
 function mapStateToProps ({ users }) {
     return {
         users: Object.values(users),
+        passCheck: users,
     }
 }
 
