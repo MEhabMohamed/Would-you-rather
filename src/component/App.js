@@ -24,6 +24,10 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   )} />)
 }
 
+const NotFound = () => {
+  return 'Error 404: Not Found'
+}
+
 class App extends Component {
   componentDidMount() {
     this.props.dispatch(handleInitialData())
@@ -43,7 +47,7 @@ class App extends Component {
               <PrivateRoute path='/add' component={NewQuestion} />
               <PrivateRoute path='/welcome' component={Home} />
               <PrivateRoute path='/question/:id' component={Question} />
-              <Route path="*">Error 404: Not Found</Route>
+              <PrivateRoute path="*" component={NotFound}/>
             </Switch>
           </div>
         </Fragment>
