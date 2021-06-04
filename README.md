@@ -8,7 +8,7 @@ In your terminal npm install then npm start, then enjoy ;)
 
 ### Users
 
-You have three users to choose from and login with.
+You have three users to choose from and login with, or you can create your own user.
 
 ### Pages
 
