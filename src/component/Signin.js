@@ -46,11 +46,12 @@ class Signin extends Component {
                 <p>Please Enter your password:
                 (default users passwords: Sarah: sarah891, Tyler: tyler523,
                 John: john4468) </p>
-                <textarea 
+                <input
                     placeholder='Password'
                     value={pass}
                     className='password'
                     onChange={this.handlePass}
+                    type='password'
                 />
                 {(user !== (null && '')) && 
                 <Link className='signin' to={from} onClick=
